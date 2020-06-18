@@ -80,28 +80,26 @@ public class ReviewMainAdapter extends RecyclerView.Adapter<ReviewMainAdapter.Ma
 
         //수정,삭제의 popup메뉴를 보여주는 버튼을 cardview로 정의함.
         // 버튼을 클릭시 popup메뉴를 보여주는 코드임.
-        /*
+
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //현재 로그인중인 유저
         assert user != null;
         email = user.getEmail();
 
         cardView1= cardView.findViewById(R.id.menu);
 
-            if (email.equals()) {
-                cardView1.setVisibility(View.VISIBLE);
+        if (email.equals(mDataset.get(viewType).getEmail())) {
+            cardView1.setVisibility(View.VISIBLE);
+            cardView1.findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showPopup(view, mainViewHolder.getAdapterPosition());
+                }
+            });
+        } else {
+            cardView1.setVisibility(View.GONE);
+        }
 
-                cardView1.findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        showPopup(view, mainViewHolder.getAdapterPosition());
-                    }
-                });
-            } else {
-                cardView1.setVisibility(View.GONE);
-            }
 
-
-         */
         return mainViewHolder;
     }
 
@@ -146,6 +144,8 @@ public class ReviewMainAdapter extends RecyclerView.Adapter<ReviewMainAdapter.Ma
 
             //수정,삭제의 popup메뉴를 보여주는 버튼을 cardview로 정의함.
             // 버튼을 클릭시 popup메뉴를 보여주는 코드임.
+
+
 
             PopupMenu popup = new PopupMenu(activity,v);
             popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
