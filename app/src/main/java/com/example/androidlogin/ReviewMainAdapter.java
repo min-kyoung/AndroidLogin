@@ -89,17 +89,16 @@ public class ReviewMainAdapter extends RecyclerView.Adapter<ReviewMainAdapter.Ma
 
         if (email.equals(mDataset.get(viewType).getEmail())) {
             cardView1.setVisibility(View.VISIBLE);
-            cardView1.findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    showPopup(view, mainViewHolder.getAdapterPosition());
-                }
-            });
         } else {
             cardView1.setVisibility(View.GONE);
         }
 
-
+        cardView.findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopup(view, mainViewHolder.getAdapterPosition());
+            }
+        });
         return mainViewHolder;
     }
 
